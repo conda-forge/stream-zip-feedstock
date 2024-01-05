@@ -1,5 +1,5 @@
 {% set name = "stream-zip" %}
-{% set version = "0.0.68" %}
+{% set version = "0.0.69" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stream_zip-{{ version }}.tar.gz
-  sha256: db2a318d0108617bcf99fed027848c4e2a3bc2368bce22cab5a27525aa55fb21
+  sha256: 384b8b15aba8d89fddbc68aec10ec8a2e789da94cc8d48ecf10c6a0c48296214
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
     - hatchling
     - pip
   run:
+    - pycryptodome >=3.10.1
     - python >=3.6.7
 
 test:
