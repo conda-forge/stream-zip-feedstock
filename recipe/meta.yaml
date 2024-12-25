@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stream_zip-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stream_zip-{{ version }}.tar.gz
   sha256: 87d755f0ce43dfc6b0ae555b733f162c76e2eafcf3c7805d3f591e966b316716
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6.7
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
     - pycryptodome >=3.10.1
-    - python >=3.6.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -30,6 +30,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: Python function to construct a ZIP archive with stream processing - without having to store the entire ZIP in memory or disk
