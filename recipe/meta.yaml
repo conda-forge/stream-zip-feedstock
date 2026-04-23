@@ -1,5 +1,5 @@
 {% set name = "stream-zip" %}
-{% set version = "0.0.83" %}
+{% set version = "0.0.84" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stream_zip-{{ version }}.tar.gz
-  sha256: 87d755f0ce43dfc6b0ae555b733f162c76e2eafcf3c7805d3f591e966b316716
+  sha256: 32ba07c3c7fe947c0224a9f8e4a228f14080e01b17d8ffc78c16a6043b1fba12
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
